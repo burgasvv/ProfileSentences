@@ -17,7 +17,7 @@
         <h2>${questionsAttribute}</h2>
         <H1>Questions from cookie:</H1>
         <h2>${cookie.questionsCookie.value}</h2>
-        <input type="button" value="Back" style="color: black" onclick="history.back()">
+        <input type="button" value="Back" style="color: black; box-shadow: 2px 2px 2px lightgray; background-color: lavender; height: 30px; width: 80px; border-radius: 10px" onclick="history.back()">
     </div>
 </body>
 </html>

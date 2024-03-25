@@ -1,5 +1,5 @@
 <div>
-    <nav style="height: 60px; background-color: aliceblue">
+    <nav style="height: 60px; background-color: lavender; box-shadow: 5px 5px 5px lightgray; border-radius: 20px">
         <div style="font-family: 'JetBrains Mono ExtraBold',sans-serif; font-size: large; text-decoration-color: slategrey;">
             <ul style="text-align: right; padding-top: 20px; padding-right: 100px">
                 <li style="display: inline; padding-right: 1500px">
