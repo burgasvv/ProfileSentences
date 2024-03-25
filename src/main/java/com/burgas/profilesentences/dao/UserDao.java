@@ -1,6 +1,6 @@
-package com.burgas.questionsandauth.dao;
+package com.burgas.profilesentences.dao;
 
-import com.burgas.questionsandauth.entity.User;
+import com.burgas.profilesentences.entity.User;
 
 import java.sql.*;
 import java.time.LocalDateTime;

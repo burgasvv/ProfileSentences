@@ -1,7 +1,7 @@
-package com.burgas.questionsandauth.dao;
+package com.burgas.profilesentences.dao;
 
-import com.burgas.questionsandauth.entity.Entity;
-import com.burgas.questionsandauth.manager.PropertiesManager;
+import com.burgas.profilesentences.entity.Entity;
+import com.burgas.profilesentences.manager.PropertiesManager;
 
 import java.sql.Connection;
 import java.util.List;

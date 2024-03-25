@@ -1,6 +1,6 @@
-package com.burgas.questionsandauth.servlet;
+package com.burgas.profilesentences.servlet;
 
-import com.burgas.questionsandauth.manager.PropertiesManager;
+import com.burgas.profilesentences.manager.PropertiesManager;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.Cookie;

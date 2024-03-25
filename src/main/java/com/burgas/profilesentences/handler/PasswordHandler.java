@@ -1,4 +1,4 @@
-package com.burgas.questionsandauth.handler;
+package com.burgas.profilesentences.handler;
 
 import org.postgresql.shaded.com.ongres.scram.common.bouncycastle.base64.Base64;
 

@@ -1,4 +1,4 @@
-package com.burgas.questionsandauth.entity;
+package com.burgas.profilesentences.entity;
 
 public class Entity {
 

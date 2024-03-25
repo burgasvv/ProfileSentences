@@ -1,8 +1,8 @@
-package com.burgas.questionsandauth.dao;
+package com.burgas.profilesentences.dao;
 
-import com.burgas.questionsandauth.entity.Role;
-import com.burgas.questionsandauth.entity.User;
-import com.burgas.questionsandauth.entity.UserRole;
+import com.burgas.profilesentences.entity.Role;
+import com.burgas.profilesentences.entity.User;
+import com.burgas.profilesentences.entity.UserRole;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

@@ -1,12 +1,12 @@
-package com.burgas.questionsandauth.filter;
+package com.burgas.profilesentences.filter;
 
-import com.burgas.questionsandauth.dao.UserDao;
-import com.burgas.questionsandauth.dao.UserRoleDao;
-import com.burgas.questionsandauth.entity.Role;
-import com.burgas.questionsandauth.entity.User;
-import com.burgas.questionsandauth.entity.UserRole;
-import com.burgas.questionsandauth.handler.PasswordHandler;
-import com.burgas.questionsandauth.manager.PropertiesManager;
+import com.burgas.profilesentences.dao.UserDao;
+import com.burgas.profilesentences.dao.UserRoleDao;
+import com.burgas.profilesentences.entity.Role;
+import com.burgas.profilesentences.entity.User;
+import com.burgas.profilesentences.entity.UserRole;
+import com.burgas.profilesentences.handler.PasswordHandler;
+import com.burgas.profilesentences.manager.PropertiesManager;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletRequest;

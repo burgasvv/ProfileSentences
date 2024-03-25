@@ -1,4 +1,4 @@
-package com.burgas.questionsandauth.exception;
+package com.burgas.profilesentences.exception;
 
 public class PropertiesManagerException extends RuntimeException{
 

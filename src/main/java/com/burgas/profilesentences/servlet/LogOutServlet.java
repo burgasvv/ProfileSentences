@@ -1,4 +1,4 @@
-package com.burgas.questionsandauth.servlet;
+package com.burgas.profilesentences.servlet;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;

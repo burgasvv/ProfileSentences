@@ -1,6 +1,6 @@
-package com.burgas.questionsandauth.manager;
+package com.burgas.profilesentences.manager;
 
-import com.burgas.questionsandauth.exception.PropertiesManagerException;
+import com.burgas.profilesentences.exception.PropertiesManagerException;
 
 import java.io.IOException;
 import java.io.InputStream;

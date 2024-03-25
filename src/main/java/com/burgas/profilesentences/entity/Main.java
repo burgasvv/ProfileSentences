@@ -1,6 +1,6 @@
-package com.burgas.questionsandauth.entity;
+package com.burgas.profilesentences.entity;
 
-import com.burgas.questionsandauth.dao.UserRoleDao;
+import com.burgas.profilesentences.dao.UserRoleDao;
 
 public class Main {
 

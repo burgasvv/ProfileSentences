@@ -1,7 +1,7 @@
-package com.burgas.questionsandauth.filter;
+package com.burgas.profilesentences.filter;
 
-import com.burgas.questionsandauth.entity.UserType;
-import com.burgas.questionsandauth.manager.PropertiesManager;
+import com.burgas.profilesentences.entity.UserType;
+import com.burgas.profilesentences.manager.PropertiesManager;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletRequest;
