@@ -10,15 +10,20 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 
+import static java.lang.System.out;
+
 @WebFilter(filterName = "securityFilter", urlPatterns = "/index.jsp")
 public class SecurityFilter implements Filter {
 
     public static final String ATTRIBUTE_NAME_OF_USERTYPE = "userType";
     public static final String GUEST_JSP_PROPERTY_NAME = "guestJsp";
+    public static final String INITIALIZING_THE_SECURITY_FILTER = "Initializing the Security filter";
+    public static final String DESTROYING_THE_SECURITY_FILTER = "Destroying the Security filter";
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        Filter.super.init(filterConfig);
+
+        out.println(INITIALIZING_THE_SECURITY_FILTER);
     }
 
     @Override
@@ -45,6 +50,7 @@ public class SecurityFilter implements Filter {
 
     @Override
     public void destroy() {
-        Filter.super.destroy();
+
+        out.println(DESTROYING_THE_SECURITY_FILTER);
     }
 }

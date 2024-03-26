@@ -12,7 +12,7 @@
                     <a style="text-decoration: 0; font-family: Corbel,serif; color: dimgrey" href="${pageContext.request.contextPath}/profile-page.jsp">${sessionScope.get("userName")}</a>
                 </li>
                 <li style="display: inline">
-                    <h5 style="text-decoration: 0; font-family: Corbel,serif; color: dimgrey">${sessionScope.get("roleName")}</h5>
+                    <h5 style="text-decoration: 0; font-family: Corbel,serif; color: dimgrey">${sessionScope.get("userType")}</h5>
                 </li>
             </ul>
         </div>

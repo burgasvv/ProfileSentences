@@ -12,6 +12,43 @@ import java.util.List;
 
 public class UserRoleDao extends Dao<UserRole> {
 
+    private record ResultUserRoleData(int userdataId, int roledataId, String username,
+                                      String email, String password, String regDate, String roleName) {
+    }
+
+    private ResultUserRoleData getResultUserRoleData(ResultSet resultSet) throws SQLException {
+
+        int userdataId = resultSet.getInt("user_id");
+        int roledataId = resultSet.getInt("role_id");
+        String username = resultSet.getString("username");
+        String email = resultSet.getString("email");
+        String password = resultSet.getString("password");
+        String regdate = resultSet.getString("regdate");
+        String roleName = resultSet.getString("name");
+
+        return new ResultUserRoleData(userdataId, roledataId, username, email, password, regdate, roleName);
+    }
+
+    private UserRole getUserRole(String name, String query) {
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)){
+
+            preparedStatement.setString(1, name);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            resultSet.next();
+
+            ResultUserRoleData result = getResultUserRoleData(resultSet);
+
+            return new UserRole(
+                    new User(result.userdataId(), result.username(), result.email(), result.password(), result.regDate()),
+                    new Role(result.roledataId(), result.roleName())
+            );
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     @Override
     public UserRole getByName(String name) {
 
@@ -21,32 +58,19 @@ public class UserRoleDao extends Dao<UserRole> {
                 join users u on u.id = user_role.user_id
                 where username = ?""";
 
-        try (PreparedStatement preparedStatement = connection.prepareStatement(query)){
-
-            preparedStatement.setString(1, name);
-            ResultSet resultSet = preparedStatement.executeQuery();
-            resultSet.next();
-
-            int userdataId = resultSet.getInt("user_id");
-            int roledataId = resultSet.getInt("role_id");
-            String username = resultSet.getString("username");
-            String email = resultSet.getString("email");
-            String password = resultSet.getString("password");
-            String roleName = resultSet.getString("name");
-
-            return new UserRole(
-                    new User(userdataId, username, email, password),
-                    new Role(roledataId, roleName)
-            );
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        return getUserRole(name, query);
     }
 
     @Override
     public UserRole getByEmail(String email) {
-        return null;
+
+        String query = """
+                select * from user_role
+                join roles r on r.id = user_role.role_id
+                join users u on u.id = user_role.user_id
+                where email = ?""";
+
+        return getUserRole(email, query);
     }
 
     @Override
@@ -64,17 +88,12 @@ public class UserRoleDao extends Dao<UserRole> {
 
             while (resultSet.next()) {
 
-                int userdataId = resultSet.getInt("user_id");
-                int roledataId = resultSet.getInt("role_id");
-                String username = resultSet.getString("username");
-                String email = resultSet.getString("email");
-                String password = resultSet.getString("password");
-                String roleName = resultSet.getString("name");
+                ResultUserRoleData result = getResultUserRoleData(resultSet);
 
                 userRoles.add(
                         new UserRole(
-                                new User(userdataId, username, email, password),
-                                new Role(roledataId, roleName)
+                                new User(result.userdataId, result.username, result.email, result.password),
+                                new Role(result.roledataId, result.roleName)
                         )
                 );
             }

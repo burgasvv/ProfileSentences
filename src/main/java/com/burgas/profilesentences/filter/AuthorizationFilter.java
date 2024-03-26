@@ -17,8 +17,9 @@ import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
+
+import static java.lang.System.out;
 
 @WebFilter(filterName = "authorizationFilter",
         servletNames = "authorizationServlet", urlPatterns = "/authorization-servlet")
@@ -34,11 +35,13 @@ public class AuthorizationFilter implements Filter {
     public static final String ADMIN_JSP_PROPERTY_NAME = "adminJsp";
     public static final String ROLENAME_USER = "user";
     public static final String ROLENAME_ADMIN = "admin";
-    public static final String LOCAL_DATE_TIME_PATTERN = "yyyy-MM-dd hh:mm:ss";
+    public static final String DESTROYING_THE_AUTHORIZATION_FILTER = "Destroying the Authorization filter";
+    public static final String INITIALIZING_THE_AUTHORIZATION_FILTER = "Initializing the Authorization filter";
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        Filter.super.init(filterConfig);
+
+        out.println(INITIALIZING_THE_AUTHORIZATION_FILTER);
     }
 
     @Override
@@ -109,10 +112,11 @@ public class AuthorizationFilter implements Filter {
                 }, () -> {
 
                     try {
-                        response.sendRedirect(
-                                PropertiesManager.fileProperties().getProperty(AUTHORIZATION_JSP_PROPERTY_NAME));
+                        request.getRequestDispatcher(
+                                PropertiesManager.fileProperties().getProperty(AUTHORIZATION_JSP_PROPERTY_NAME)
+                        ).forward(request, response);
 
-                    } catch (IOException e) {
+                    } catch (IOException | ServletException e) {
                         throw new RuntimeException(e);
                     }
                 }
@@ -128,13 +132,12 @@ public class AuthorizationFilter implements Filter {
         session.setAttribute(ATTRIBUTE_NAME_OF_USERNAME, userName);
         session.setAttribute(PARAMETER_NAME_OF_EMAIL, email);
         session.setAttribute(PARAMETER_NAME_OF_PASSWORD, password);
-        LocalDateTime localDateTime = LocalDateTime.now();
-        String format = localDateTime.format(DateTimeFormatter.ofPattern(LOCAL_DATE_TIME_PATTERN));
-        session.setAttribute(ATTRIBUTE_NAME_OF_LOGINTIME, Timestamp.valueOf(format));
+        session.setAttribute(ATTRIBUTE_NAME_OF_LOGINTIME, Timestamp.valueOf(LocalDateTime.now()));
     }
 
     @Override
     public void destroy() {
-        Filter.super.destroy();
+
+        out.println(DESTROYING_THE_AUTHORIZATION_FILTER);
     }
 }

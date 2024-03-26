@@ -8,7 +8,7 @@
     <mytags:navbar-user/>
     <div style="padding: 70px; color: dimgrey">
         <h1>Profile information</h1>
-        <h2>Profile type: ${sessionScope.get("userType")}</h2>
+        <h2>Profile status: ${sessionScope.get("userType")}</h2>
         <h2>User Name: ${sessionScope.get("userName")}</h2>
         <h2>Email: ${sessionScope.get("email")}</h2>
         <h2>Password: ${sessionScope.get("password")}</h2>

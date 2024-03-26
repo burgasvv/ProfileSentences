@@ -12,6 +12,8 @@ import java.util.Properties;
 public class PropertiesManager {
 
     private static final Properties PROPERTIES = new Properties();
+    public static final String FILES_PROPERTIES = "files.properties";
+    public static final String DB_PROPERTIES = "db.properties";
 
     private PropertiesManager() {
     }
@@ -19,7 +21,7 @@ public class PropertiesManager {
     public static Properties fileProperties() {
 
         try (InputStream inputStream = PropertiesManager.class
-                .getClassLoader().getResourceAsStream("files.properties")){
+                .getClassLoader().getResourceAsStream(FILES_PROPERTIES)){
 
             PROPERTIES.load(inputStream);
 
@@ -33,7 +35,7 @@ public class PropertiesManager {
     public static Connection createConnection() {
 
         try (InputStream resource = PropertiesManager.class
-                .getClassLoader().getResourceAsStream("db.properties")){
+                .getClassLoader().getResourceAsStream(DB_PROPERTIES)){
 
             PROPERTIES.load(resource);
             Class.forName(PROPERTIES.getProperty("driver"));

@@ -7,8 +7,7 @@
 <body>
     <mytags:navbar-guest/>
     <div style="padding: 70px">
-        <h1 style="color: dimgrey">Sorry, you are a guest!
-            Log in to your account or register.</h1>
+        <h1 style="color: dimgrey">Welcome to the site. At the moment your status is guest. Please register or log in.</h1>
     </div>
 </body>
 </html>

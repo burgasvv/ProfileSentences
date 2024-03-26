@@ -16,6 +16,8 @@ import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
+import static java.lang.System.out;
+
 @WebFilter(filterName = "registrationFilter",
         servletNames = "registrationServlet", urlPatterns = "/registration-servlet")
 public class RegistrationFilter implements Filter {
@@ -24,10 +26,13 @@ public class RegistrationFilter implements Filter {
     public static final String PARAMETER_NAME_OF_EMAIL = "email";
     public static final String REGISTRATION_JSP_PROPERTY_NAME = "registrationJsp";
     public static final String PARAMETER_NAME_OF_PASSWORD = "password";
+    public static final String INITIALIZING_THE_REGISTRATION_FILTER = "Initializing the Registration filter";
+    public static final String DESTROYING_THE_REGISTRATION_FILTER = "Destroying the Registration filter";
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        Filter.super.init(filterConfig);
+
+        out.println(INITIALIZING_THE_REGISTRATION_FILTER);
     }
 
     @Override
@@ -49,14 +54,14 @@ public class RegistrationFilter implements Filter {
                 .filter(
                 userData -> userData.getUserName().equals(userName) ||
                         userData.getEmail().equals(email)
-        )
+                )
                 .findAny()
                 .ifPresentOrElse(
                         _ -> {
                     try {
                         request.getRequestDispatcher(
-                                PropertiesManager.fileProperties().getProperty(REGISTRATION_JSP_PROPERTY_NAME))
-                                .forward(request, response);
+                                PropertiesManager.fileProperties().getProperty(REGISTRATION_JSP_PROPERTY_NAME)
+                        ).forward(request, response);
 
                     } catch (IOException | ServletException e) {
                         throw new RuntimeException(e);
@@ -83,6 +88,7 @@ public class RegistrationFilter implements Filter {
 
     @Override
     public void destroy() {
-        Filter.super.destroy();
+
+        out.println(DESTROYING_THE_REGISTRATION_FILTER);
     }
 }
