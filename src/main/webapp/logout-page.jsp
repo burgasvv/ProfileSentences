@@ -13,7 +13,7 @@
         <h2 style="color: dimgrey">
             Online time: ${sessionScope.get("onlineTime")}.
         </h2>
-        <input type="button" value="OK" style="color: black; box-shadow: 2px 2px 2px lightgray; background-color: lavender; height: 30px; width: 80px; border-radius: 10px" onclick="location.href='/guest.jsp'">
+        <input type="button" value="OK" style="color: black; box-shadow: 2px 2px 2px lightgray; background-color: lavender; height: 30px; width: 80px; border-radius: 10px" onclick="location.href='/index.jsp'">
     </div>
 </body>
 </html>

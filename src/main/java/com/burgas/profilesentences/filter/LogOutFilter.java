@@ -82,8 +82,6 @@ public class LogOutFilter implements Filter {
             onlineTime = onlineTime.concat(durationTime.toSecondsPart() + SECONDS);
         }
 
-        out.println(onlineTime);
-
         session.setAttribute(ATTRIBUTE_NAME_OF_ONLINE_TIME, onlineTime);
         session.setAttribute(SecurityFilter.ATTRIBUTE_NAME_OF_USERTYPE, UserType.GUEST);
 

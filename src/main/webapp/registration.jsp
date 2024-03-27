@@ -18,7 +18,7 @@
                 <input type="password" id="password" name="password" required style="color: black"> <br><br>
             </label>
             <input type="submit" value="Create" style="color: black; box-shadow: 2px 2px 2px lightgray; background-color: lavender; height: 30px; width: 80px; border-radius: 10px">
-            <input type="button" value="Back" style="color: black; box-shadow: 2px 2px 2px lightgray; background-color: lavender; height: 30px; width: 80px; border-radius: 10px" onclick="location.href='/'">
+            <input type="button" value="Back" style="color: black; box-shadow: 2px 2px 2px lightgray; background-color: lavender; height: 30px; width: 80px; border-radius: 10px" onclick="location.href='/index.jsp'">
         </form>
     </div>
 </body>

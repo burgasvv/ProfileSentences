@@ -13,7 +13,7 @@
         <h2>Email: ${sessionScope.get("email")}</h2>
         <h2>Password: ${sessionScope.get("password")}</h2>
         <h2>Login time: ${sessionScope.get("loginTime")}</h2>
-        <input type="button" value="Back" style="color: black; box-shadow: 2px 2px 2px lightgray; background-color: lavender; height: 30px; width: 80px; border-radius: 10px" onclick="location.href='/'">
+        <input type="button" value="Back" style="color: black; box-shadow: 2px 2px 2px lightgray; background-color: lavender; height: 30px; width: 80px; border-radius: 10px" onclick="location.href='/index.jsp'">
     </div>
 </body>
 </html>
