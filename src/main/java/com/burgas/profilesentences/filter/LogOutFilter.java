@@ -1,6 +1,7 @@
 package com.burgas.profilesentences.filter;
 
 import com.burgas.profilesentences.entity.UserType;
+import com.burgas.profilesentences.util.Util;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletRequest;
@@ -18,8 +19,6 @@ import static java.lang.System.out;
 @WebFilter(filterName = "logOutFilter", urlPatterns = "/log_out-servlet")
 public class LogOutFilter implements Filter {
 
-    public static final String DESTROYING_THE_LOGOUT_FILTER = "Destroying the Logout filter";
-    public static final String INITIALIZING_THE_LOGOUT_FILTER = "Initializing the Logout filter";
     public static final String YEARS = " years ";
     public static final String MONTHS = " months ";
     public static final String DAYS = " days ";
@@ -31,7 +30,8 @@ public class LogOutFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
 
-        out.println(INITIALIZING_THE_LOGOUT_FILTER);
+        //noinspection StringTemplateMigration
+        out.println(this.getClass().getSimpleName() + " initialized");
     }
 
     @Override
@@ -42,7 +42,7 @@ public class LogOutFilter implements Filter {
         HttpServletResponse response = (HttpServletResponse) servletResponse;
 
         HttpSession session = request.getSession();
-        Timestamp timestamp = (Timestamp) session.getAttribute(AuthorizationFilter.ATTRIBUTE_NAME_OF_LOGINTIME);
+        Timestamp timestamp = (Timestamp) session.getAttribute(Util.ATTRIBUTE_NAME_OF_LOGINTIME);
         LocalDateTime logoutTime = LocalDateTime.now();
 
         Period periodDate = Period.between(timestamp.toLocalDateTime().toLocalDate(), logoutTime.toLocalDate());
@@ -91,6 +91,7 @@ public class LogOutFilter implements Filter {
     @Override
     public void destroy() {
 
-        out.println(DESTROYING_THE_LOGOUT_FILTER);
+        //noinspection StringTemplateMigration
+        out.println(this.getClass().getSimpleName() + " destroyed");
     }
 }

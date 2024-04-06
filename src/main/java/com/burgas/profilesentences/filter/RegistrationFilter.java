@@ -26,13 +26,12 @@ public class RegistrationFilter implements Filter {
     public static final String PARAMETER_NAME_OF_EMAIL = "email";
     public static final String REGISTRATION_JSP_PROPERTY_NAME = "registrationJsp";
     public static final String PARAMETER_NAME_OF_PASSWORD = "password";
-    public static final String INITIALIZING_THE_REGISTRATION_FILTER = "Initializing the Registration filter";
-    public static final String DESTROYING_THE_REGISTRATION_FILTER = "Destroying the Registration filter";
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
 
-        out.println(INITIALIZING_THE_REGISTRATION_FILTER);
+        //noinspection StringTemplateMigration
+        out.println(this.getClass().getSimpleName() + " initialized");
     }
 
     @Override
@@ -89,6 +88,7 @@ public class RegistrationFilter implements Filter {
     @Override
     public void destroy() {
 
-        out.println(DESTROYING_THE_REGISTRATION_FILTER);
+        //noinspection StringTemplateMigration
+        out.println(this.getClass().getSimpleName() + " destroyed");
     }
 }

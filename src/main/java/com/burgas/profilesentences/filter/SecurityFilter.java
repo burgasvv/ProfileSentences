@@ -17,13 +17,12 @@ public class SecurityFilter implements Filter {
 
     public static final String ATTRIBUTE_NAME_OF_USERTYPE = "userType";
     public static final String GUEST_JSP_PROPERTY_NAME = "guestJsp";
-    public static final String INITIALIZING_THE_SECURITY_FILTER = "Initializing the Security filter";
-    public static final String DESTROYING_THE_SECURITY_FILTER = "Destroying the Security filter";
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
 
-        out.println(INITIALIZING_THE_SECURITY_FILTER);
+        //noinspection StringTemplateMigration
+        out.println(this.getClass().getSimpleName() + " initialized");
     }
 
     @Override
@@ -51,6 +50,7 @@ public class SecurityFilter implements Filter {
     @Override
     public void destroy() {
 
-        out.println(DESTROYING_THE_SECURITY_FILTER);
+        //noinspection StringTemplateMigration
+        out.println(this.getClass().getSimpleName() + " destroyed");
     }
 }
